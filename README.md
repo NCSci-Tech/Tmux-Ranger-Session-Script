@@ -55,7 +55,7 @@ Launch another program:
 
 tmux send-keys -t my_session:0.0 'htop' C-m
 
-🧼 Exit
+Exit
 
 To close everything:
 

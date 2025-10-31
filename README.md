@@ -29,10 +29,10 @@ brew install tmux ranger
 
 Usage
 # Make the script executable
-chmod +x start-tmux-ranger.sh
+chmod +x tmuxStart.sh
 
 # Run the script
-./start-tmux-ranger.sh
+./tmuxStart.sh
 
 Script
 #!/bin/bash

@@ -1,24 +1,27 @@
 Tmux + Ranger Session Script
 
-This script launches a new tmux session with two panes; Ranger on the left and a regular terminal on the right.
+This Bash script creates a new tmux session with a split layout:
+Ranger runs in the left pane, and an interactive terminal opens in the right pane.
 
-Features
+Overview
 
-Creates a named tmux session (my_session)
+This script automates the following:
+
+Creates a new tmux session (my_session)
 
 Splits the window vertically
 
-Starts Ranger in the left pane
+Launches Ranger in the left pane
 
-Opens a terminal in the right pane
+Focuses the right pane for terminal use
 
-Automatically attaches to the session
+Attaches to the session
 
-**Requirements
+Requirements
 
-Install dependencies:
+Install the required tools:
 
-# Ubuntu/Debian
+# Ubuntu / Debian
 sudo apt install tmux ranger
 
 # macOS
@@ -31,32 +34,42 @@ chmod +x start-tmux-ranger.sh
 # Run the script
 ./start-tmux-ranger.sh
 
-Script Overview
+Script
 #!/bin/bash
-tmux new-session -d -s my_session       # Create a new tmux session
-tmux split-window -h                    # Split window vertically
-tmux send-keys -t my_session:0.0 'ranger' C-m  # Launch Ranger in left pane
-tmux select-pane -t my_session:0.1      # Focus right pane
-tmux attach -t my_session               # Attach to session
+
+# Create a new tmux session in detached mode
+tmux new-session -d -s my_session
+
+# Split the window vertically
+tmux split-window -h
+
+# Launch Ranger in the left pane
+tmux send-keys -t my_session:0.0 'ranger' C-m
+
+# Focus the right pane
+tmux select-pane -t my_session:0.1
+
+# Attach to the session
+tmux attach -t my_session
 
 Customization
 
-Change session name:
+Change the session name:
 
-tmux new-session -d -s your_session_name
+tmux new-session -d -s project_session
 
 
-Horizontal split:
+Use a horizontal split:
 
 tmux split-window -v
 
 
-Launch another program:
+Run a different program in the left pane:
 
 tmux send-keys -t my_session:0.0 'htop' C-m
 
-Exit
+Exiting
 
-To close everything:
+To close the session cleanly:
 
 tmux kill-session -t my_session

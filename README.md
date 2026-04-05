@@ -3,16 +3,6 @@ Tmux + Ranger Session Script
 This Bash script creates a new tmux session with a split layout:
 Ranger runs in the left pane, and an interactive terminal opens in the right pane.
 
-Overview
-
-This script automates the following:
-Creates a new tmux session (my_session)
-Splits the window vertically
-Launches Ranger in the left pane
-Focuses the right pane for terminal use
-Attaches to the session
-
-
 Customization
 
 Change the session name:
